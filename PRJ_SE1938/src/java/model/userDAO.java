@@ -16,6 +16,10 @@ import java.sql.SQLException;
  */
 public class userDAO {
 
+    public boolean checkExist(String username){
+        return true;
+    }
+    
     public boolean checkLogin(String username, String password)
             throws SQLException, ClassNotFoundException {
 
@@ -38,5 +42,16 @@ public class userDAO {
                 return false;
             }
         }
+    }
+    
+    public boolean createUser(User newUser)
+            throws SQLException, ClassNotFoundException{
+        String stm = "INSERT INTO ";
+        
+        try (Connection conn = DBHelper.makeConnection();
+                PreparedStatement ps = conn.prepareStatement(stm);){
+            
+        }
+        return false;
     }
 }
