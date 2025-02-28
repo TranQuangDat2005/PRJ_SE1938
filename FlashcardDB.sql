@@ -1,6 +1,7 @@
 ﻿CREATE DATABASE FlashcardDB;
+GO
 USE FlashcardDB;
-
+GO
 --Tao bang User
 CREATE TABLE [user](
 	user_id INT IDENTITY(1,1) PRIMARY KEY,
@@ -12,7 +13,7 @@ CREATE TABLE [user](
 	[role] BIT DEFAULT 0, --Admin = 1, User = 0
 	dob DATE
 );
-
+Go
 --Bang Flashcard Set
 CREATE TABLE flashcard_set(
 	flashcard_set_id INT IDENTITY(1,1) PRIMARY KEY,
@@ -104,10 +105,5 @@ SELECT fs.flashcard_set_ID, fs.tags, f.term, f.definition
 FROM flashcard_Set fs
 JOIN flashcard f ON fs.flashcard_set_ID = f.flashcard_Set_ID
 WHERE fs.user_id = 2;
-
-
-
-
-
 
 
