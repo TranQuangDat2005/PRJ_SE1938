@@ -11,15 +11,20 @@ import java.sql.SQLException;
  */
 public class DBHelper implements Serializable {
 
+    private static final String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    private static final String username = "sa";
+    private static final String password = "123456";
+    private static final String database = "FlashcardDB";
+
     public static Connection makeConnection() throws ClassNotFoundException, SQLException {
         //1. Load Driver
-        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        Class.forName(driver);
         //2. Create Connection String
         String url = "jdbc:sqlserver:"
                 + "//localhost:1433"
-                + ";databaseName=FlashcardDB;encrypt=true;trustServerCertificate=true";
+                + ";databaseName=" + database + ";encrypt=true;trustServerCertificate=true";
         //3. Open Connection
-        Connection con = DriverManager.getConnection(url, "sa", "123456");
+        Connection con = DriverManager.getConnection(url, username, password);
         return con;
     }
 }
