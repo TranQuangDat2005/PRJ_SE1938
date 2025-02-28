@@ -1,7 +1,8 @@
 ﻿
-CREATE DATABASE flashcarddb;
-USE flashcarddb;
-
+CREATE DATABASE flashcarddb
+GO
+USE flashcarddb
+GO
 
 CREATE TABLE [user] (
     user_id INT IDENTITY(1,1) PRIMARY KEY,
@@ -67,3 +68,6 @@ GO
 -- Xem dữ liệu từ bảng user
 SELECT * FROM [user];
 GO
+
+SELECT * FROM quick_storage;
+
