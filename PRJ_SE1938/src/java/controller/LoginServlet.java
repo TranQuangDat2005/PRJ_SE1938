@@ -5,7 +5,6 @@
  */
 package controller;
 
-import model.LoginDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,6 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import model.userDAO;
 
 /**
  *
@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
                 String username = request.getParameter("username");
                 String password = request.getParameter("password");
                 //ket noi csdl, thuc hien cau lenh select...
-                LoginDAO dao = new LoginDAO();
+                userDAO dao = new userDAO();
                 boolean result = dao.checkLogin(username, password);
                 if (result) {
                     //chuyen den trang search.html
