@@ -9,9 +9,10 @@ package model;
  * @author Phan Sơn
  */
 public class User {
-    private String username;
-    private String email;
-    private String phoneNumber;
+
+    private String username; // Unique
+    private String email;// Unique
+    private String phoneNumber;// Unique
     private String password;
     private boolean vipStatus;
     private boolean role;
@@ -51,6 +52,5 @@ public class User {
     public boolean isRole() {
         return role;
     }
-    
-    
+
 }
