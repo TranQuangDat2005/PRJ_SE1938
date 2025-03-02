@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.sql.Date;
+
 /**
  *
  * @author Phan Sơn
@@ -12,21 +14,31 @@ public class User {
 
     private String username; // Unique
     private String email;// Unique
-    private String phoneNumber;// Unique
+    private String phone_number;// Unique
     private String password;
-    private boolean vipStatus;
-    private boolean role;
+    private Integer vip_status;
+    private Integer role;
+    private Date dob;
 
     public User() {
     }
 
-    public User(String username, String email, String phoneNumber, String password, boolean vipStatus, boolean role) {
+    public User(String username, String email, String phone_number, String password, Date dob) {
         this.username = username;
         this.email = email;
-        this.phoneNumber = phoneNumber;
+        this.phone_number = phone_number;
         this.password = password;
-        this.vipStatus = vipStatus;
+        this.dob = dob;
+    }
+
+    public User(String username, String email, String phone_number, String password, int vip_status, int role, Date dob) {
+        this.username = username;
+        this.email = email;
+        this.phone_number = phone_number;
+        this.password = password;
+        this.vip_status = vip_status;
         this.role = role;
+        this.dob = dob;
     }
 
     public String getUsername() {
@@ -38,19 +50,23 @@ public class User {
     }
 
     public String getPhoneNumber() {
-        return phoneNumber;
+        return phone_number;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public boolean isVipStatus() {
-        return vipStatus;
+    public Integer getVip_status() {
+        return vip_status;
     }
 
-    public boolean isRole() {
+    public Integer getRole() {
         return role;
+    }
+
+    public Date getDob() {
+        return dob;
     }
 
 }
