@@ -12,8 +12,8 @@ import java.sql.SQLException;
 public class DBHelper implements Serializable {
 
     private static final String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    private static final String username = "admin";
-    private static final String password = "3))%@))5";
+    private static final String username = "sa";
+    private static final String password = "123456";
     private static final String database = "FlashcardDB";
 
     public static Connection makeConnection() throws ClassNotFoundException, SQLException {
