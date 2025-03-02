@@ -107,12 +107,11 @@ public class RegisterServlet extends HttpServlet {
 
         // 4. Add to Database
         userDAO uDao = new userDAO();
-
-        // 5. If success added, redirect to Login
-        response.sendRedirect("login.jsp");
-
         try {
             uDao.createUser(newUser);
+            // 5. If success added, redirect to Login
+            response.sendRedirect("login.jsp");
+
         } catch (SQLException e) {
             // 6. If Exception is added more than 1 then forward back error
             request.setAttribute("error", e.getCause());
