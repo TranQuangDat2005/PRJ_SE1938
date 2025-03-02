@@ -80,7 +80,7 @@ public class userDAO {
                     newUser.getUsername(),
                     newUser.getEmail(),
                     newUser.getPhoneNumber())) {
-                throw new SQLException("Duplicate Information");
+                throw new SQLException("Error. Duplicate Information");
             }
 
             conn.setAutoCommit(false);
