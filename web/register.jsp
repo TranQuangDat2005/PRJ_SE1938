@@ -1,10 +1,3 @@
-<%-- 
-    Document   : register
-    Created on : Feb 28, 2025, 2:18:24 AM
-    Author     : Admin
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,120 +7,122 @@
         <link href="https://fonts.googleapis.com/css2?family=Sigmar&display=swap" rel="stylesheet">
         <style>
             * {
-                font-family: 'Sigmar';
+                font-family: 'Sigmar', cursive;
                 letter-spacing: 1px;
+                box-sizing: border-box;
             }
 
-            .re-body{
-                display: flex;
-            }
-
-            .nothing{
-                width: 50%;
-                display: hidden;
-            }
-
-            .re-form{
-                background-color: #ececec;
-                justify-self: end;
-                justify-items: center;
-                margin-right: 4%;
-                margin-top: 4%;
-                height: 80vh;
-                width: 35%;
-                border: 10px #b8b8b8 dashed;
-                border-radius: 10px;
-                padding: 20px;
-                align-content: center;
-
-            }
-
-            .re-form form{
-                font-size: 20px;
-                justify-content: center;
-            }
-
-            .re-form form input{
-                height: 40px;
-                width: 45vh;
-                border-radius: 10px;
-                padding-left: 20px;
-                background-color: #F5F5F5;
-                color: #545454;
-                margin-top: 1%;
-                margin-bottom: 2%;
-                margin-left: 1%;
-            }
-
-            body{
+            body {
                 background-image: url(icon_image/register-bg.png);
+                background-size: cover;
+                background-position: center;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                height: 100vh;
+                padding-right: 10vw;
+            }
+
+            .re-form {
+                background-color: #ececec;
+                width: 40vw;
+                max-width: 500px;
+                padding: 3vh;
+                border: 1vh #b8b8b8 dashed;
+                border-radius: 1vh;
+                text-align: center;
+                position: relative;
+            }
+
+            .close-btn {
+                position: absolute;
+                top: 2vh;
+                right: 2vw;
+                cursor: pointer;
+                font-size: 2rem;
+                color: #545454;
+            }
+
+            .re-form h1 {
+                font-size: 4vw;
+                color: white;
+                text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black;
+                margin-bottom: 2vh;
             }
 
             .error {
-                color: #ff0000; /* Red color for visibility */
-                font-size: 15px;
-                margin: 0px;
+                color: #ff0000;
+                font-size: 1.2rem;
                 font-weight: bold;
-                text-align: center;
-                display: inline-block;
-                width: 100%;
+                margin-bottom: 1vh;
             }
 
+            label {
+                font-size: 1.2rem;
+                display: block;
+                margin-top: 1vh;
+            }
+
+            input {
+                width: 100%;
+                height: 4vh;
+                border-radius: 1vh;
+                padding-left: 1vw;
+                background-color: #F5F5F5;
+                color: #545454;
+                border: none;
+                font-size: 1rem;
+                margin-bottom: 1vh;
+            }
+
+            input[type="submit"] {
+                background-color: #007BFF;
+                color: white;
+                border: none;
+                height: 5vh;
+                padding: 0.5vh;
+                font-size: 1.2rem;
+                cursor: pointer;
+                border-radius: 1vh;
+                width: 100%;
+                margin-top: 2vh;
+            }
+
+            a {
+                display: block;
+                color: #007BFF;
+                text-decoration: none;
+                margin-top: 2vh;
+                font-size: 1rem;
+            }
         </style>
     </head>
     <body>
         <div class="re-form">
-            <div onclick="window.location.href = 'index.html';" style="margin-left: 90%; margin-top: -10%; cursor: pointer; font-size: 30px; color: #545454">X</div>
-            <form action="RegisterServlet" method="POST" style="margin-top: -30px">
-                <div style="justify-self: center">
-                    <h1 class="logo"
-                        style="font-size: 70px;
-                        font-weight: bold;
-                        color: white;
-                        margin: 0px;
-                        text-shadow:
-                        -2px -2px 0 black,
-                        2px -2px 0 black,
-                        -2px  2px 0 black,
-                        2px  2px 0 black;">
-                        CARDLORD
-                    </h1>
-                    <div class="error">
-                        ${errorMessage}
-                    </div>
-                </div>
-                <label>Username:</label><br>
-                <input type="text" name="username" required><br>
+            <div class="close-btn" onclick="window.location.href = 'index.html';">X</div>
+            <h1>CARDLORD</h1>
+            <div class="error">${errorMessage}</div>
+            <form action="RegisterServlet" method="POST">
+                <label>Username:</label>
+                <input type="text" name="username" required>
 
-                <label>Password:</label><br>
-                <input type="password" name="password" required><br>
+                <label>Password:</label>
+                <input type="password" name="password" required>
 
-                <label>Email:</label><br>
-                <input type="email" name="email" required><br>
+                <label>Email:</label>
+                <input type="email" name="email" required>
 
-                <label>Phone Number:</label><br>
-                <input type="text" name="phone_number" required><br>
+                <label>Phone Number:</label>
+                <input type="text" name="phone_number" required>
 
+                <label>Date of Birth:</label>
+                <input type="date" name="dob" required>
 
-                <label>Date of Birth:</label><br>
-                <input type="date" name="dob" required><br>
-
-                <div style="justify-self: center">
-                    <input style="background-color: #007BFF;
-                           color: white;
-                           border: none;
-                           padding: 10px;
-                           margin: 10px;
-                           font-size: 16px;
-                           cursor: pointer;
-                           border-radius: 10px;
-                           text-align: center;" type="submit" value="This is me" name="btAction" />
-                </div>
-                <div style="justify-self: center;">
-                    <a href="login.jsp" style="color: #007BFF; text-decoration: none;">Already a Duke? Login here!</a>
-                </div>
+                <input type="submit" value="This is me" name="btAction">
+                <a href="login.jsp">Already a Duke? Login here!</a>
             </form>
         </div>
     </body>
 </html>
-
