@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/F:/Study/Ki_4/PRJ301/Assignment/PRJ_SE1938/PRJ_SE1938/src/java/utils/utils.java</file>
+            <file>file:/F:/Study/Ki_4/PRJ301/Assignment/PRJ_SE1938/PRJ_SE1938/web/login.jsp</file>
             <file>file:/F:/Study/Ki_4/PRJ301/Assignment/PRJ_SE1938/PRJ_SE1938/src/java/model/userDAO.java</file>
-            <file>file:/F:/Study/Ki_4/PRJ301/Assignment/PRJ_SE1938/PRJ_SE1938/src/java/controller/LoginServlet.java</file>
             <file>file:/F:/Study/Ki_4/PRJ301/Assignment/PRJ_SE1938/PRJ_SE1938/src/java/controller/RegisterServlet.java</file>
+            <file>file:/F:/Study/Ki_4/PRJ301/Assignment/PRJ_SE1938/PRJ_SE1938/web/resigter.jsp</file>
             <file>file:/F:/Study/Ki_4/PRJ301/Assignment/PRJ_SE1938/PRJ_SE1938/src/java/model/User.java</file>
-            <file>file:/F:/Study/Ki_4/PRJ301/Assignment/PRJ_SE1938/PRJ_SE1938/src/java/dal/DBHelper.java</file>
         </group>
     </open-files>
 </project-private>

@@ -39,7 +39,7 @@ public class userDAO {
             throws SQLException, ClassNotFoundException {
 
         String stm = "SELECT * FROM [user] "
-                + "WHERE [username]  ? "
+                + "WHERE [username] =  ? "
                 + "AND [password] = ?";
 
         // 1. Open connection and Create Prepared Statement

@@ -22,11 +22,17 @@
         <form action="LoginServlet" method="POST">
             Username: <input type="text" name="username" value="" required/><br><br>
             Password: <input type="password" name="password" value="" required/><br><br>
-            <div class="error">
-                ${errorMessage}
-            </div>
+
             <input type="submit" value="Login" name="btAction" />
             <input type="reset" value="Reset" />
-        </form>        
+        </form>    
+        <%
+        String error = (String) request.getAttribute("error");
+        if (error != null){
+        %>
+        <h1 class="error"><%=error%></h1>
+        <%
+            }
+        %>
     </body>
 </html>

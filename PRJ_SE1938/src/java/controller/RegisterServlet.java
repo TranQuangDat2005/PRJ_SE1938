@@ -10,7 +10,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.sql.Date;
 import model.User;
@@ -19,44 +18,7 @@ import utils.utils;
 
 public class RegisterServlet extends HttpServlet {
 
-    private final String INVALID_PAGE = "register.html";
-    private final String LOGIN_PAGE = "login.jsp";
 
-//    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-//            throws ServletException, IOException {
-//        response.setContentType("text/html;charset=UTF-8");
-//        PrintWriter out = response.getWriter();
-//        String url = INVALID_PAGE;
-//
-//        // Lấy giá trị của btAction
-//        String button = request.getParameter("btAction");
-//        try {
-//            // Kiểm tra nếu người dùng nhấn nút Register
-//            if (button != null && button.equals("Register")) {
-//                String username = request.getParameter("username");
-//                String password = request.getParameter("password");
-//                String email = request.getParameter("email");
-//                String phone_number = request.getParameter("phone_number");
-//                String dob = request.getParameter("dob");
-//
-//                // Chuyển đổi DoB từ String sang Date
-//                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//                Date dobInput = dateFormat.parse(dob);
-//
-//                // Kết nối csdl và thực hiện insert
-//                RegistrationDAO dao = new RegistrationDAO();
-//                boolean result = dao.Register(username, password, email, phone_number, dobInput);
-//                if (result) {
-//                    url = LOGIN_PAGE;
-//                }
-//            }
-//        } catch (SQLException | ClassNotFoundException | ParseException ex) {
-//            ex.printStackTrace();
-//        } finally {
-//            response.sendRedirect(url);
-//            out.close();
-//        }
-//    }
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -97,7 +59,7 @@ public class RegisterServlet extends HttpServlet {
                 || utils.isEmptyInput(phone)
                 || utils.isEmptyInput(dobStr)) {
             request.setAttribute("error", "Empty input");
-            request.getRequestDispatcher("register.html").forward(request, response);
+            request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
         }
 
