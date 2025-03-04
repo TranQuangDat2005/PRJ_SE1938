@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Support</title>
+    <style>
+      :root {
+        --primary-color: #545454;
+        --secondary-color: #c6c6c6;
+        --text-color: #455358;
+        --light-bg: #f6f7fb;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        color: var(--text-color);
+        background-color: var(--light-bg);
+        line-height: 1.6;
+      }
+
+      header {
+        background-color: var(--primary-color);
+        color: var(--white);
+        padding: 20px 0;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+        
+      }
+
+      .logo a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 30px;
+      }
+
+      .nav-links a {
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .search-bar {
+        background-color: var(--white);
+        border-radius: 8px;
+        padding: 30px;
+        margin: 30px auto;
+        text-align: center;
+        max-width: 800px;
+        box-shadow: 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .search-bar h1 {
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        font-size: 28px;
+      }
+
+      .search-input {
+        display: flex;
+        justify-content: center;
+      }
+
+      .search-input input {
+        width: 70%;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px 0 0 4px;
+        font-size: 16px;
+        outline: none;
+      }
+
+      .search-input button {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 15px 25px;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .categories {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin: 50px 0;
+      }
+
+      .category {
+        background-color: var(--white);
+        border-radius: 8px;
+        padding: 25px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+
+      .category:hover {
+        transform: translateY(-5px);
+      }
+
+      .category h3 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        font-size: 20px;
+      }
+
+      .category-icon {
+        font-size: 36px;
+        margin-bottom: 15px;
+        color: var(--secondary-color);
+      }
+
+      .category ul {
+        list-style: none;
+        margin-left: 10px;
+      }
+
+      .category li {
+        margin-bottom: 10px;
+      }
+
+      .category a {
+        color: var(--text-color);
+        text-decoration: none;
+      }
+
+      .category a:hover {
+        color: var(--primary-color);
+        text-decoration: underline;
+      }
+
+      .popular-articles {
+        background-color: var(--white);
+        border-radius: 8px;
+        padding: 30px;
+        margin: 50px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      .popular-articles h2 {
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .articles-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .article-card {
+        padding: 15px;
+        border: 1px solid #eee;
+        border-radius: 6px;
+        transition: box-shadow 0.3s ease;
+      }
+
+      .article-card:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .article-card a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .article-card a:hover {
+        color: var(--primary-color);
+      }
+
+      footer {
+        background-color: var(--primary-color);
+        color: var(--white);
+        padding: 40px 0;
+        margin-top: 50px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+      }
+
+      .footer-column h3 {
+        margin-bottom: 20px;
+        font-size: 18px;
+        color: var(--secondary-color);
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column li {
+        margin-bottom: 10px;
+      }
+
+      .footer-column a {
+        color: var(--white);
+        text-decoration: none;
+      }
+
+      .footer-column a:hover {
+        text-decoration: underline;
+      }
+
+      .copyright {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .nav-links {
+          margin-top: 20px;
+          justify-content: center;
+        }
+
+        .nav-links li {
+          margin: 0 15px;
+        }
+
+        .search-input input {
+          width: 60%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+            <div class="logo"><a href="index.html">CARDLORD</a></div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li>
+              <a href="contact.html">Contact</a>
+            </li>
+            <li><a href="login.jsp">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="search-bar">
+        <h1>How can we help you?</h1>
+      </div>
+
+      <div class="categories">
+        <div class="category">
+          <div class="category-icon">📚</div>
+          <a href="study.html"><h3>Study</h3></a>
+        </div>
+
+        <div class="category">
+          <div class="category-icon">🔍</div>
+          <a href="account.html"><h3>Account</h3></a>
+        </div>
+
+        <div class="category">
+          <div class="category-icon">⚙️</div>
+          <a href="troubleshooting.html"><h3>Troubleshooting</h3></a>
+        </div>
+
+        <div class="category">
+          <div class="category-icon">🛡️</div>
+          <a href="socialandsecurity.html"><h3>Community and security</h3></a>
+        </div>
+      </div>
+
+      <div class="popular-articles">
+        <h2>Popular Posts</h2>
+        <div class="articles-grid">
+          <div class="article-card">
+            <a href="study.html">What is a course?</a>
+          </div>
+          <div class="article-card">
+            <a href="account.html">How to recover forgotten password</a>
+          </div>
+          <div class="article-card">
+            <a href="troubleshooting.html">Website failed to load</a>
+          </div>
+          <div class="article-card">
+            <a href="study.html">How to create a course</a>
+          </div>
+          <div class="article-card">
+            <a href="socialandsecurity.html">Report invalid content</a>
+          </div>
+          <div class="article-card">
+            <a href="socialandsecurity.html">How to test knowledge</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Help</h3>
+            <ul>
+              <li><a href="#">Contact support</a></li>
+              <li><a href="#">Frequently Asked Questions</a></li>
+              <li><a href="#">Report a problem</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>community</h3>
+            <ul>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Forum</a></li>
+              <li><a href="#">Contribute</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Information</h3>
+            <ul>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Clause</a></li>
+              <li><a href="#">Privacy</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Account</h3>
+            <ul>
+              <li><a href="#">Register</a></li>
+              <li><a href="#">Log in</a></li>
+              <li><a href="#">Upgrade account</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>&copy; PRJ301_Project Group 1_FPT University</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

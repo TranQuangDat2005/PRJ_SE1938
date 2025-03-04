@@ -59,8 +59,17 @@
                 margin-left: 1%;
             }
 
-            body{
+            body {
                 background-image: url(icon_image/register-bg.png);
+                background-size: cover;
+                background-position: center;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                height: 100vh;
+                padding-right: 10vw;
             }
 
             .error {
@@ -112,8 +121,10 @@
                            border-radius: 10px;
                            text-align: center;" type="submit" value="Log in" name="btAction" />
                 </div>
-                <div style="justify-self: center;">
-                    <a href="forgotten.jsp" style="color: #007BFF; text-decoration: none;">Forgot your password? Recover it here!</a>
+                <div style="justify-self: center; justify-items: center">
+                    <a href="ForgotPassword.jsp" style="color: #007BFF; text-decoration: none;">Forgot your password? Recover it here!</a><br><!-- comment -->
+                    <p>or</p>
+                    <a href="register.jsp" style="color: #007BFF; text-decoration: none;">New to us? Sign up here!</a>
                 </div>
             </form>
         </div>

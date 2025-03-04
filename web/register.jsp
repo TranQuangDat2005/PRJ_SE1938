@@ -61,7 +61,6 @@
 
             label {
                 font-size: 1.2rem;
-                display: block;
                 margin-top: 1vh;
             }
 
@@ -97,6 +96,8 @@
                 margin-top: 2vh;
                 font-size: 1rem;
             }
+            
+            
         </style>
     </head>
     <body>
@@ -105,19 +106,19 @@
             <h1>CARDLORD</h1>
             <div class="error">${errorMessage}</div>
             <form action="RegisterServlet" method="POST">
-                <label>Username:</label>
+                <label>Username</label>
                 <input type="text" name="username" required>
 
-                <label>Password:</label>
+                <label>Password</label>
                 <input type="password" name="password" required>
 
-                <label>Email:</label>
+                <label>Email</label>
                 <input type="email" name="email" required>
 
-                <label>Phone Number:</label>
+                <label>Phone Number</label>
                 <input type="text" name="phone_number" required>
 
-                <label>Date of Birth:</label>
+                <label>Date of Birth</label>
                 <input type="date" name="dob" required>
 
                 <input type="submit" value="This is me" name="btAction">
