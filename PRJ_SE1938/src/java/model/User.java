@@ -1,72 +1,116 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
-import java.sql.Date;
+import java.util.Date;
 
-/**
- *
- * @author Phan Sơn
- */
 public class User {
 
-    private String username; // Unique
-    private String email;// Unique
-    private String phone_number;// Unique
+    private int userId;
+    private String username;
+    private String email;
+    private String phoneNumber;
     private String password;
-    private Integer vip_status;
-    private Integer role;
-    private Date dob;
+    private boolean vipStatus; // VIP status (0 = No, 1 = Yes)
+    private boolean role; // Role (0 = User, 1 = Admin)
+    private Date dob; // Date of Birth
+    private String verificationCode;
+    private boolean isVerification; // Verification status (0 = No, 1 = Yes)
 
+    // Constructors
     public User() {
     }
 
-    public User(String username, String email, String phone_number, String password, Date dob) {
+    public User(int userId, String username, String email, String phoneNumber, String password,
+            boolean vipStatus, boolean role, Date dob, String verificationCode, boolean isVerification) {
+        this.userId = userId;
         this.username = username;
         this.email = email;
-        this.phone_number = phone_number;
+        this.phoneNumber = phoneNumber;
         this.password = password;
-        this.dob = dob;
-    }
-
-    public User(String username, String email, String phone_number, String password, int vip_status, int role, Date dob) {
-        this.username = username;
-        this.email = email;
-        this.phone_number = phone_number;
-        this.password = password;
-        this.vip_status = vip_status;
+        this.vipStatus = vipStatus;
         this.role = role;
         this.dob = dob;
+        this.verificationCode = verificationCode;
+        this.isVerification = isVerification;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getUsername() {
         return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getEmail() {
         return email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPhoneNumber() {
-        return phone_number;
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public Integer getVip_status() {
-        return vip_status;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public Integer getRole() {
+    public boolean isVipStatus() {
+        return vipStatus;
+    }
+
+    public void setVipStatus(boolean vipStatus) {
+        this.vipStatus = vipStatus;
+    }
+
+    public boolean isRole() {
         return role;
+    }
+
+    public void setRole(boolean role) {
+        this.role = role;
     }
 
     public Date getDob() {
         return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
+    public String getVerificationCode() {
+        return verificationCode;
+    }
+
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
+    }
+
+    public boolean isIsVerification() {
+        return isVerification;
+    }
+
+    public void setIsVerification(boolean isVerification) {
+        this.isVerification = isVerification;
     }
 
 }

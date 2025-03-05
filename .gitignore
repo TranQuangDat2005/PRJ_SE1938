@@ -1,3 +1,23 @@
-/PRJ_SE1938/nbproject/private/
-/PRJ_SE1938/dist/
+# Ignore build files
 /PRJ_SE1938/build/
+/PRJ_SE1938/dist/
+/PRJ_SE1938/nbproject/private/
+/PRJ_SE1938/nbbuild/
+/PRJ_SE1938/nbdist/
+/PRJ_SE1938/nbactions.xml
+/nb-configuration.xml
+
+# Ignore compiled class files
+*.class
+
+# Ignore NetBeans IDE specific cache
+/.netbeans/
+
+# Ignore temporary and log files
+*.log
+*.tmp
+
+# Ignore package-specific files (optional)
+*.bak
+*.swp
+*.swo
