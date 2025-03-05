@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
+import dal.DBHelper;
 import dal.DBHelper;
 import java.io.Serializable;
 import java.sql.Connection;
@@ -13,57 +9,70 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
-/**
- *
- * @author Teacher
- */
 public class RegistrationDAO implements Serializable {
+
+    // Method to check duplicate entries
+    public String checkDuplicate(String username, String email, String phone_number) throws SQLException, ClassNotFoundException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+
+        try {
+            con = DBHelper.makeConnection();
+            if (con != null) {
+                // Check username
+                String checkUserSql = "SELECT username FROM [user] WHERE username = ?";
+                stm = con.prepareStatement(checkUserSql);
+                stm.setString(1, username);
+                rs = stm.executeQuery();
+                if (rs.next()) {
+                    return "Username already exists!";
+                }
+                rs.close();
+                stm.close();
+
+                // Check email
+                String checkEmailSql = "SELECT email FROM [user] WHERE email = ?";
+                stm = con.prepareStatement(checkEmailSql);
+                stm.setString(1, email);
+                rs = stm.executeQuery();
+                if (rs.next()) {
+                    return "Email already exists!";
+                }
+                rs.close();
+                stm.close();
+
+                // Check phone number
+                String checkPhoneSql = "SELECT phone_number FROM [user] WHERE phone_number = ?";
+                stm = con.prepareStatement(checkPhoneSql);
+                stm.setString(1, phone_number);
+                rs = stm.executeQuery();
+                if (rs.next()) {
+                    return "Phone number already exists!";
+                }
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return null; // No duplicate found
+    }
 
     public boolean Register(String username, String password, String email, String phone_number, Date dob)
             throws SQLException, ClassNotFoundException {
         Connection con = null;
         PreparedStatement stm = null;
-        ResultSet rs = null;
+
         try {
             con = DBHelper.makeConnection();
-            //Kiem tra xem ket noi csdl
             if (con != null) {
-                String checkUserNameSql = "SELECT username "
-                        + "FROM [user] "
-                        + "WHERE [username] = ?";
-                stm = con.prepareStatement(checkUserNameSql);
-                stm.setString(1, username);
-                rs = stm.executeQuery();
-                //Kiem tra email da ton tai neu da ton tai tra ve false
-                if (rs.next()) {
-                    con.rollback();
-                    return false;
-                }
-
-                String checkEmailSql = "SELECT email "
-                        + "FROM [user] "
-                        + "WHERE email = ?";
-                stm = con.prepareStatement(checkEmailSql);
-                stm.setString(1, email);
-                rs = stm.executeQuery();
-                //Kiem tra email da ton tai neu da ton tai tra ve false
-                if (rs.next()) {
-                    con.rollback();
-                    return false;
-                }
-
-                String checkPhoneNumberSql = "SELECT phone_number "
-                        + "FROM [user] "
-                        + "WHERE phone_number = ?";
-                stm = con.prepareStatement(checkPhoneNumberSql);
-                stm.setString(1, phone_number);
-                rs = stm.executeQuery();
-                //Kiem tra sdt da ton tai neu da ton tai tra ve false
-                if (rs.next()) {
-                    con.rollback();
-                    return false;
-                }
-
                 String insertSql = "INSERT INTO [user] (username, email, phone_number, [password], dob) "
                         + "VALUES (?, ?, ?, ?, ?)";
                 stm = con.prepareStatement(insertSql);
@@ -74,17 +83,9 @@ public class RegistrationDAO implements Serializable {
                 stm.setDate(5, new java.sql.Date(dob.getTime()));
 
                 int row = stm.executeUpdate();
-                if (row > 0) {
-                    return true;
-                } else {
-                    con.rollback();
-                    return false;
-                }
+                return row > 0;
             }
         } finally {
-            if (rs != null) {
-                rs.close();
-            }
             if (stm != null) {
                 stm.close();
             }

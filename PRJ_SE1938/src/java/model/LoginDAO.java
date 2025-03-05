@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package model;
+
+import dal.DBHelper;
 import dal.DBHelper;
 import java.io.Serializable;
 import java.sql.Connection;
@@ -15,18 +17,19 @@ import java.sql.SQLException;
  *
  * @author Teacher
  */
-public class LoginDAO implements Serializable{
-    public boolean checkLogin (String username, String password)
-            throws SQLException, ClassNotFoundException{
+public class LoginDAO implements Serializable {
+
+    public boolean checkLogin(String username, String password)
+            throws SQLException, ClassNotFoundException {
         Connection con = null; //Ket noi den csdl
         PreparedStatement stm = null; //Select, Update, Insert into, Delete
         ResultSet rs = null; //Select
-        try{
+        try {
             //1. Connect DB
             con = DBHelper.makeConnection();
-            if(con!=null){
+            if (con != null) {
                 //2. Create SQL String
-                String sql="Select username "
+                String sql = "Select username "
                         + "FROM [user] "
                         + "WHERE [username] = ? "
                         + "AND [password] = ?";
@@ -37,19 +40,18 @@ public class LoginDAO implements Serializable{
                 //4. Excute Query
                 rs = stm.executeQuery();
                 //5. Process Result
-                if(rs.next()){
+                if (rs.next()) {
                     return true;
                 }
             }
-        }
-        finally{
-            if(rs != null){
+        } finally {
+            if (rs != null) {
                 rs.close();
             }
-            if(stm != null){
+            if (stm != null) {
                 stm.close();
             }
-            if(con != null){
+            if (con != null) {
                 con.close();
             }
         }

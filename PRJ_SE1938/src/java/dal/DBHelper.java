@@ -22,4 +22,5 @@ public class DBHelper implements Serializable {
         Connection con = DriverManager.getConnection(url, "sa", "123456");
         return con;
     }
+
 }
