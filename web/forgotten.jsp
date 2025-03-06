@@ -1,9 +1,3 @@
-<%-- 
-    Document   : forgotten
-    Created on : Feb 28, 2025, 3:24:40 PM
-    Author     : Admin
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

@@ -1,14 +1,8 @@
-<%-- 
-    Document   : dashboard
-    Created on : Feb 28, 2025, 4:50:35 PM
-    Author     : Admin
---%>
-
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
-    <description>Welcome to CARDLORD</description>
+    <title>Welcome to CARDLORD</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -366,7 +360,7 @@
                         <img src="icon_image/bell.png" alt="Notifications">
                         <span>Notifications</span>
                     </div>
-                    <div class="offcanvas-item" onclick="window.location.href = '#';">
+                    <div class="offcanvas-item" onclick="window.location.href = 'chatBot.jsp';">
                         <img src="icon_image/bot.png" alt="Chat Bot">
                         <span>Chat Bot</span>
                     </div>
@@ -387,7 +381,7 @@
 
                     <!-- Search Box -->
                     <form action="action" class="search-box">
-                        <input type="text" value="&#128269; Find your flashcard set now..." style="color: #545454">
+                        <input type="text" placeholder="&#128269; Find your flashcard set now..." style="color: #545454">
                     </form>
 
                     <!-- Add new flashcard set & profile -->
@@ -402,7 +396,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Notifications</a></li>
                                 <li><a class="dropdown-item" href="#">Settings</a></li>
-                                <li><a class="dropdown-item" href="premium.html">Become CARDLORD</a></li>
+                                <li><a class="dropdown-item" href="QR.jsp">Become CARDLORD</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>

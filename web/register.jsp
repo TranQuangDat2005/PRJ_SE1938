@@ -96,8 +96,8 @@
                 margin-top: 2vh;
                 font-size: 1rem;
             }
-            
-            
+
+
         </style>
     </head>
     <body>
@@ -121,9 +121,62 @@
                 <label>Date of Birth</label>
                 <input type="date" name="dob" required>
 
+                <div style="border-bottom:none;display: flex; justify-self: center" class="inputbox">
+                    <ion-icon name="lock-closed-outline"></ion-icon> 
+                    <img id="captcha" style="width: 256px; border: 2px black solid;" class="captcha" alt="captcha" src="/PRJ_SE1938/captcha">
+                    <button id="reloadCaptcha" class="reload-btn" 
+                            style="height: 44px; width: 44px; margin-top: 8px; margin-left: 8px; border-radius: 50px;
+                            background-image: url('icon_image/retry-captcha.png');
+                            background-size: cover; background-repeat: no-repeat;">
+                    </button>
+                </div>
+
+                <div class="inputbox">
+                    <label>Input captcha code above!</label>
+                    <ion-icon name="lock-closed-outline"></ion-icon> 
+                    <input type="text" name="captcha" required /><br><!-- comment -->
+                </div>
+
                 <input type="submit" value="This is me" name="btAction">
                 <a href="login.jsp">Already a Duke? Login here!</a>
             </form>
         </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>     
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script>
+                $(document).ready(function () {
+                    // G?n s? ki?n click cho nút reload captcha
+                    $('#reloadCaptcha').click(function (e) {
+                        e.preventDefault(); // Ng?n ch?n hành ??ng m?c ??nh c?a nút
+                        reloadCaptcha();
+                    });
+
+                    // Hàm ?? t?i l?i captcha b?ng AJAX
+                    function reloadCaptcha() {
+                        // G?i yêu c?u AJAX ?? t?i l?i captcha
+                        $.ajax({
+                            type: 'GET',
+                            url: '/PRJ_SE1938/captcha', // ??m b?o ???ng d?n ?úng t?i endpoint c?a captcha
+                            success: function () {
+                                // C?p nh?t hình ?nh captcha v?i ???ng d?n m?i (?? tránh cache)
+                                var newImgSrc = '/PRJ_SE1938/captcha?' + new Date().getTime(); // Thêm timestamp ?? tránh cache
+                                $('.captcha').attr('src', newImgSrc); // C?p nh?t src c?a ?nh captcha
+                            },
+                            error: function (xhr, status, error) {
+                                // X? lý l?i n?u có
+                                console.error('L?i t?i l?i captcha:', error);
+                            }
+                        });
+                    }
+                });
+        </script>
     </body>
 </html>

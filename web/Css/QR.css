@@ -1,0 +1,268 @@
+/* main.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+  }
+  
+  .courses_wrapper {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .courses_inner {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+  }
+  
+  .course_item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    width: 300px;
+  }
+  
+  .course_item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .course_item p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .course_item_btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .course_item_btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .course_qr {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .course_qr img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .course_qr p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+  }
+
+
+
+
+
+
+/* Toast Overlay */
+.toast_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.toast_overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Toast Container */
+.course_qr {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 350px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease-in-out;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.course_qr.show {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* QR Image */
+.qr_wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.course_qr_img {
+  width: 150px;
+  height: 150px;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+}
+
+/* Payment Info */
+.course_info p {
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.input_group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.form_input {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f9f9f9;
+  margin-right: 10px;
+  color: #333;
+}
+
+.copy_btn {
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #fff;
+  background: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.copy_btn:hover {
+  background: #0056b3;
+}
+
+/* Countdown */
+.countdown {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff3333;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Close Button */
+.close_btn {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background: #ff4d4d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.close_btn:hover {
+  background: #e60000;
+}
+
+
+/* Toast container */
+.success_toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  min-width: 250px;
+  padding: 15px 20px;
+  background: #28a745; /* Màu xanh lá */
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(100%);
+  transition: all 0.5s ease-in-out;
+  z-index: 9999;
+}
+
+/* Hiển thị toast */
+.success_toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* Icon */
+.toast_icon {
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  color: #28a745;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.toast_message p {
+  margin: 0;
+}
+
+/* Ẩn toast (hiệu ứng) */
+.hidden1 {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(100%);
+}
+
+
+  
+
+  
+  
